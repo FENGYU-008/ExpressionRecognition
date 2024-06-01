@@ -41,7 +41,7 @@ def draw_emotion_label(cv_image, box, predicted_class):
     # 使用PIL绘制标签
     draw = ImageDraw.Draw(pil_image)
     font = ImageFont.truetype('simsun.ttc', 20, encoding='utf-8')
-    draw.rectangle([(x, y), (x + w, y + h)], outline=(255, 0, 0), width=2)
+    draw.rectangle([(x, y), (x + w, y + h)], outline=(255, 0, 0), width=5)
     draw.text((x, y - 20), emotion_label, fill=(255, 0, 0), font=font)
     # 将PIL图片转换回OpenCV格式
     cv_image = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
@@ -49,7 +49,7 @@ def draw_emotion_label(cv_image, box, predicted_class):
 
 
 # 使用OpenCV读取并预处理图片
-raw_image_path = 'images/happy1.jpg'
+raw_image_path = 'images/neutral.jpg'
 raw_image = cv2.imread(raw_image_path)
 detector.imread(raw_image)
 faces = detector.detect_faces()
